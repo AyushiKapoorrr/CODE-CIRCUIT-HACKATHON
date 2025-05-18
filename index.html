@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spaced Repetition Flashcards</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <!-- Loader Screen -->
+  <div id="loader-screen" aria-hidden="true">
+    <h1><span class="fixed-part">Study</span><span id="changing-part">____</span></h1>
+  </div>
+
+  <header>
+    <h1>🧠 Study Stack</h1>
+    <nav aria-label="Deck Selection">
+      <label for="deckSelector" class="visually-hidden">Choose a flashcard deck</label>
+      <select id="deckSelector" aria-label="Flashcard deck selector">
+        <option value="default" disabled selected>Select Deck</option>
+        <option value="js">Java</option>
+        <option value="dsa">DSA</option>
+        <option value="DBMS">DBMS</option>
+        <option value="SE">SE</option>
+      </select>
+    </nav>
+  </header>
+
+  <main>
+    <section id="flashcards-container" aria-live="polite"></section>
+    <div id="results" role="status" aria-live="polite"></div>
+  </main>
+</body>
+
+</html>

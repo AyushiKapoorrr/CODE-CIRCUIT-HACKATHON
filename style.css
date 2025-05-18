@@ -1,0 +1,189 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #F5F5DC;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: #004d4d;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #008080;
+}
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px #B8860B;
+}
+
+nav {
+  margin-bottom: 30px;
+}
+select, button {
+  font-size: 1.1rem;
+  padding: 8px 12px;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid #008080;
+  background-color: #F5F5DC;
+  color: #008080;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+select:hover, button:hover {
+  background-color: #008080;
+  color: #F5F5DC;
+  border-color: #228B22;
+}
+
+#flashcards-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  max-width: 100%;
+}
+
+.flashcard {
+  width: 260px;
+  height: 220px;
+  perspective: 1000px;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 128, 128, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.flashcard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 128, 128, 0.35);
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 12px;
+  background: #FFFACD;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: inset 0 0 8px rgba(184, 134, 11, 0.3);
+}
+.flashcard.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  text-align: center;
+  color: #004d4d;
+}
+.card-front {
+  background-color: #F5F5DC;
+  box-shadow: inset 0 0 10px #B8860B;
+}
+.card-back {
+  background-color: #008080;
+  color: #FFFACD;
+  transform: rotateY(180deg);
+  box-shadow: inset 0 0 10px rgba(34, 139, 34, 0.6);
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.card-buttons {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.card-buttons button {
+  padding: 8px 16px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  flex: 1;
+  margin: 0 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-know {
+  background-color: #228B22;
+  color: white;
+}
+.btn-know:hover {
+  background-color: #196619;
+  box-shadow: 0 5px 10px rgba(25, 102, 25, 0.7);
+}
+.btn-dontknow {
+  background-color: #800080;
+  color: white;
+}
+.btn-dontknow:hover {
+  background-color: #4b004b;
+  box-shadow: 0 5px 10px rgba(75, 0, 75, 0.7);
+}
+
+#results {
+  margin-top: 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #008080;
+}
+
+#loader-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #004d4d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: 'Courier New', Courier, monospace;
+  color: #B8860B;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  transition: opacity 0.8s ease;
+}
+#loader-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+.fixed-part {
+  margin-right: 0.5rem;
+  color: #B8860B;
+}
+#changing-part {
+  color: #ADD8E6;
+  transition: all 0.2s ease-in-out;
+}
