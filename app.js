@@ -1,9 +1,11 @@
 const decks = {
-  js: [
+  java: [
     { question: "What is a class in Java?", answer: "A blueprint for creating objects, defining properties and methods." },
     { question: "What is inheritance?", answer: "Mechanism where one class acquires properties of another." },
     { question: "What is polymorphism?", answer: "Ability of an object to take many forms." },
     { question: "What is encapsulation?", answer: "Wrapping data and methods into a single unit (class)." },
+    { question: "What is abstraction?", answer: "Hiding internal details and showing only essential features." },
+    { question: "What is method overloading?", answer: "Defining multiple methods with the same name but different parameters." }
 
   ],
   dsa: [
